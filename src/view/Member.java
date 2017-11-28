@@ -1,5 +1,7 @@
 package view;
 
+import model.UserService;
+
 import java.text.DateFormat;
 import java.util.*;
 import java.io.*;
@@ -16,8 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static consts.PageConst.*;
-
 /**
  * Created by GaryMao on 11/27/2017.
  */
@@ -25,12 +25,8 @@ import static consts.PageConst.*;
 public class Member extends HttpServlet {
         protected void processRequest(HttpServletRequest request,
                 HttpServletResponse response) throws ServletException, IOException {
-            if(request.getSession().getAttribute(LOGIN) == null) {
-                response.sendRedirect(BACK_TO_INDEX_VIEW);
-                return;
-            }
 
-            String username = (String) request.getSession().getAttribute("login");
+            String username = (String) request.getSession().getAttribute("username");
 
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
@@ -43,14 +39,14 @@ public class Member extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            out.println("<div style='float:left;margin-right:30%'>");
+            out.println("<div style='float:left;margin-right:20%'>");
             out.println("<img src='images/caterpillar.jpg' alt='Gossip 微网志' /><br><br>");
             out.println("<a href='logout?username=" + username + "'>注销" + username + "</a>");
             out.println("</div>");
 
             out.println("<form method='post' action='sendmessage'>");
             out.println("分享新鲜事...<br>");
-            String blabla = request.getParameter(WORDS_BEYOND_LIMIT);
+            String blabla = request.getParameter("blabla");
             if (blabla == null){
                 blabla = "";
             } else {
@@ -66,7 +62,9 @@ public class Member extends HttpServlet {
             out.println("<tr><th><hr></th></tr>");
             out.println("</thead>");
             out.println("<tbody>");
-            Map<Date, String> messages = readMessage(username);
+
+            UserService userService = (UserService)getServletContext().getAttribute("userService");
+            Map<Date, String> messages = userService.readMessage(username);
             DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, Locale.CHINA);
             for (Date date : messages.keySet()){
                 out.println("<tr><td style='vertical-align:top;'>");
@@ -85,41 +83,6 @@ public class Member extends HttpServlet {
             out.close();
         }
 
-        private class TxtFilenameFilter implements FilenameFilter {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".txt");
-            }
-        }
-
-        private class DateComparator implements Comparator<Date> {
-            @Override
-            public int compare(Date d1, Date d2) {
-                return -d1.compareTo(d2);
-            }
-        }
-
-        private Map<Date, String> readMessage(String username) throws IOException {
-            File border = new File(USERS + "/" + username);
-            String[] txts = border.list(new TxtFilenameFilter());
-
-            Map<Date, String> messages = new TreeMap<Date, String>(new DateComparator());
-            for(String txt : txts) {
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(
-                                new FileInputStream(USERS + "/" + username + "/" + txt), "UTF-8"));
-                String text = null;
-                StringBuilder builder = new StringBuilder();
-                while((text = reader.readLine()) != null) {
-                    builder.append(text);
-                }
-                Date date = new Date(Long.parseLong(txt.substring(0, txt.indexOf(".txt"))));
-                messages.put(date, builder.toString());
-                reader.close();
-            }
-
-            return messages;
-        }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
