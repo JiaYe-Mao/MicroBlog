@@ -16,7 +16,7 @@ import java.text.DateFormat;
  * Created by GaryMao on 11/27/2017.
  */
 @WebServlet(name = "Delete", urlPatterns = {"/delete"},
-            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member")})
+            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member.jsp")})
 public class Delete extends HttpServlet {
     private String SUCCESS_VIEW;
 

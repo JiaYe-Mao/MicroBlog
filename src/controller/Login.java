@@ -15,7 +15,7 @@ import java.io.*;
  * Created by GaryMao on 11/27/2017.
  */
 @WebServlet(name = "Login", urlPatterns = {"/login"},
-        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member"),
+        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member.jsp"),
                       @WebInitParam(name = "ERROR_VIEW", value = "index.jsp")})
 public class Login extends HttpServlet {
     private String SUCCESS_VIEW;

@@ -15,8 +15,8 @@ import java.util.Date;
  * Created by GaryMao on 11/27/2017.
  */
 @WebServlet(name = "Message", urlPatterns = {"/sendmessage"},
-        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member"),
-                      @WebInitParam(name = "ERROR_VIEW", value = "member")})
+        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member.jsp"),
+                      @WebInitParam(name = "ERROR_VIEW", value = "member.jsp")})
 public class Message extends HttpServlet {
     private String SUCCESS_VIEW;
     private String ERROR_VIEW;
