@@ -1,10 +1,7 @@
 package model;
 
 import java.io.*;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class UserService {
 
@@ -14,7 +11,7 @@ public class UserService {
         this.USERS = USERS;
     }
 
-    public boolean isInvalidUsername (String username){
+    public boolean isUsernameExisted (String username){
         for (String file : new File(USERS).list()){
             if (file.equals(username)){
                 return true;
@@ -55,18 +52,20 @@ public class UserService {
         }
     }
 
-    private class DateComparator implements Comparator<Date> {
+    private class DateComparator implements Comparator<Message> {
         @Override
-        public int compare(Date d1, Date d2) {
-            return -d1.compareTo(d2);
+        public int compare(Message o1, Message o2) {
+            return -o1.getDate().compareTo(o2.getDate());
         }
     }
 
-    public Map<Date, String> readMessage(String username) throws IOException {
+    public List<Message> getMessage(Message message) throws IOException {    //可以改成只要username这一个参数
+        String username = message.getUsername();
         File border = new File(USERS + "/" + username);
-        String[] txts = border.list(new TxtFilenameFilter());
+        String[] txts = border.list(new TxtFilenameFilter());          //获得目录下所有txt文件
 
-        Map<Date, String> messages = new TreeMap<Date, String>(new DateComparator());
+        List<Message> blahs = new ArrayList<>();
+
         for(String txt : txts) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                             new FileInputStream(USERS + "/" + username + "/" + txt), "UTF-8"));
@@ -76,22 +75,22 @@ public class UserService {
                 builder.append(text);
             }
             Date date = new Date(Long.parseLong(txt.substring(0, txt.indexOf(".txt"))));
-            messages.put(date, builder.toString());
             reader.close();
+            blahs.add(new Message(username, date, builder.toString()));
         }
-
-        return messages;
+        blahs.sort(new DateComparator());
+        return blahs;
     }
 
-    public void addMessage(String username, String blabla) throws IOException {
-        String file = USERS + "/" + username + "/" + new Date().getTime() + ".txt";
+    public void addMessage(Message message) throws IOException {
+        String file = USERS + "/" + message.getUsername() + "/" + new Date().getTime() + ".txt";
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));   //utf-8
-        writer.write(blabla);
+        writer.write(message.getTxt());
         writer.close();
     }
 
-    public void deleteMessage(String username, String date){
-        File file = new File(USERS+"/"+username+"/"+ date +".txt");
+    public void deleteMessage(Message message){
+        File file = new File(USERS+"/"+ message.getUsername()+"/"+ message.getDate().getTime() +".txt");
         if (file.exists()){
             file.delete();
         }

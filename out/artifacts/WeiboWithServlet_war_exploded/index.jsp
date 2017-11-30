@@ -18,6 +18,9 @@
       <a href='register.jsp'>还不是会员？</a>
     </div>
 
+    <div style="color:rgb(255,0,0);" align="center">
+      ${requestScope.error}
+    </div>
 
     <div style="margin-left: 40%;float: left">
       <form method='post' action='login'  >
@@ -26,7 +29,7 @@
           <td colspan='2'>会员登录</td>
         <tr>
           <td>名称：</td>
-          <td><input type='text' name='username'></td>
+          <td><input type='text' name='username' value="${param.username}"></td>
         </tr>
         <tr>
           <td>密码：</td>

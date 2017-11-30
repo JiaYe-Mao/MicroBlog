@@ -17,8 +17,8 @@ import java.util.List;
  * Created by GaryMao on 11/26/2017.
  */
 @WebServlet(urlPatterns = {"/register"}, name = "Register", loadOnStartup = 1,
-            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "success.jsp"),
-                          @WebInitParam(name = "ERROR_VIEW", value = "error.jsp")})
+            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "../success.jsp"),
+                          @WebInitParam(name = "ERROR_VIEW", value = "../register.jsp")})
 public class Register extends HttpServlet {
     private String SUCCESS_VIEW;
     private String ERROR_VIEW;
@@ -41,7 +41,7 @@ public class Register extends HttpServlet {
         if (isInvalidEmail(email)){
             errors.add("未填写邮件或邮件格式不正确");
         }
-        if (userService.isInvalidUsername(usersname)){
+        if (userService.isUsernameExisted(usersname)){
             errors.add("用户名为空或已存在");
         }
         if (isInvalidPassWord(password, confirmedPasswd)){

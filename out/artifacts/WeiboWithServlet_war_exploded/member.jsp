@@ -6,37 +6,33 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page import="model.UserService, java.util.*, java.text.*" %>
-<%
-    String username = (String) request.getSession().getAttribute("username");
-%>
+<%@ page import="model.Message" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
     <title>Gossip 微博</title>
-    <link rel="stylesheet" type="text/css" href="css/member.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member.css">
 </head>
 <body>
     <div class="leftPanel">
-        <img src="images/caterpillar.jpg" alt="Gossip 微博"/>
-        <br><br>
-        <a href="logout">注销<%= username%>></a>
+        <img src="<%=request.getContextPath() %>/images/caterpillar.jpg" alt="Gossip 微博"/>
+        <br><br><br><br><br>
+        <a href="logout">注销${sessionScope.username}</a>
     </div>
 
-    <form method="post" action="/sendmessage">
+    <form method="post" action="sendmessage">
         <h3>分享新鲜事...</h3>
 <%
     String blabla = request.getParameter("blabla");
-    if (blabla == null){
-        blabla = "";
-    } else {
+    if (blabla != null){
 %>
         <h3>信息要在140字以内</h3>
 <%
     }
 %>
-        <textarea cols="60" rows="4" name="blabla">
-            <%= blabla%>
+        <textarea cols="60" rows="6" name="blabla">
+            ${requestScope.blabla}
         </textarea><br>
         <button type="submit">发送</button>
     </form>
@@ -49,17 +45,16 @@
         </thead>
         <tbody>
 <%
-    UserService userService = (UserService)getServletConfig().getServletContext().getAttribute("userService");
-    Map<Date, String> messages = userService.readMessage(username);
     DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, Locale.CHINA);
-    for (Date date : messages.keySet()){
+    List<Message> messages = (List<Message>)request.getAttribute("messages");
+    for (Message message : messages){
 %>
         <tr>
             <td>
-                <%= username%><br>
-                <%= messages.get(date)%><br>
-                <%= dateFormat.format(date)%>
-                <a href="delete?date=<%= date.getTime()%>">删除</a>
+                <%= message.getUsername()%><br>
+                <%= message.getTxt()%><br>
+                <%= dateFormat.format(message.getDate())%>
+                <a href="delete?date=<%= message.getDate().getTime()%>">删除</a>
                 <hr>
             </td>
         </tr>

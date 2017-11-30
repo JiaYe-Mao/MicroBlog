@@ -15,7 +15,7 @@ import java.io.*;
  * Created by GaryMao on 11/27/2017.
  */
 @WebServlet(name = "Login", urlPatterns = {"/login"},
-        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "member.jsp"),
+        initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "sendmessage"),
                       @WebInitParam(name = "ERROR_VIEW", value = "index.jsp")})
 public class Login extends HttpServlet {
     private String SUCCESS_VIEW;
@@ -30,15 +30,18 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String page;
 
         UserService userService = (UserService)getServletContext().getAttribute("userService");
 
         if (userService.checkLogin(username, password)){
             request.getSession().setAttribute("username", username);
-            request.getRequestDispatcher(SUCCESS_VIEW).forward(request, response);
+            page = SUCCESS_VIEW;
         } else {
-            response.sendRedirect(ERROR_VIEW);
+            request.setAttribute("error", "名称或密码错误");
+            page = ERROR_VIEW;
         }
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
