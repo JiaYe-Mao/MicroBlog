@@ -33,11 +33,13 @@ public class SendMessage extends HttpServlet {
         message.setUsername(username);
 
         String blabla = request.getParameter("blabla");
+
         if (blabla != null && blabla.length() != 0){
             if (blabla.length()<140){
                 message.setTxt(blabla);
                 message.setDate(new Date());
                 userService.addMessage(message);
+
             }else {
                 request.setAttribute("blabla", blabla);
             }

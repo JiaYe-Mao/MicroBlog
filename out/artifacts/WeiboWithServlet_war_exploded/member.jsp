@@ -24,7 +24,7 @@
     <form method="post" action="sendmessage">
         <h3>分享新鲜事...</h3>
 <%
-    String blabla = request.getParameter("blabla");
+    String blabla = (String) request.getAttribute("blabla");
     if (blabla != null){
 %>
         <h3>信息要在140字以内</h3>

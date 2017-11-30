@@ -39,4 +39,24 @@ public class Message implements Serializable{
     public void setTxt(String txt) {
         this.txt = txt;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        if (username != null ? !username.equals(message.username) : message.username != null) return false;
+        if (date != null ? !date.equals(message.date) : message.date != null) return false;
+        return txt != null ? txt.equals(message.txt) : message.txt == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = username != null ? username.hashCode() : 0;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (txt != null ? txt.hashCode() : 0);
+        return result;
+    }
 }

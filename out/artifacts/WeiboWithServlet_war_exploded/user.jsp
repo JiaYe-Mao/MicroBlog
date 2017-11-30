@@ -52,6 +52,7 @@
         }
     }
 %>
-
+    </tbody>
+</table>
 </body>
 </html>

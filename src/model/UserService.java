@@ -7,6 +7,12 @@ public class UserService {
 
     private String USERS;
 
+    /*这个newest实现的不好, 应该是遍历所有message来实现, 现在只是一条一条加上去,一旦服务器重启就会清空*/
+    private LinkedList<Message> newest = new LinkedList<>();
+    public List<Message> getNewest(){
+        return newest;
+    }
+
     public UserService (String USERS){
         this.USERS = USERS;
     }
@@ -87,6 +93,10 @@ public class UserService {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));   //utf-8
         writer.write(message.getTxt());
         writer.close();
+        newest.addFirst(message);
+        if (newest.size() > 20){
+            newest.removeLast();
+        }
     }
 
     public void deleteMessage(Message message){
@@ -94,6 +104,7 @@ public class UserService {
         if (file.exists()){
             file.delete();
         }
+        newest.remove(message);
     }
 
 
