@@ -1,5 +1,6 @@
 package controller;
 
+import model.Account;
 import model.UserService;
 
 import javax.servlet.ServletException;
@@ -30,11 +31,14 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        Account account = new Account();
+        account.setUsername(username);
+        account.setPassword(password);
         String page;
 
         UserService userService = (UserService)getServletContext().getAttribute("userService");
 
-        if (userService.checkLogin(username, password)){
+        if (userService.checkLogin(account)){
             request.getSession().setAttribute("username", username);
             page = SUCCESS_VIEW;
         } else {
