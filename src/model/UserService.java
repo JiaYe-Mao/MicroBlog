@@ -1,11 +1,12 @@
 package model;
 
+import DAO.AccountDAO;
+import DAO.MessageDAO;
+
 import java.io.*;
 import java.util.*;
 
 public class UserService {
-
-    private String USERS;
 
     /*这个newest实现的不好, 应该是遍历所有message来实现, 现在只是一条一条加上去,一旦服务器重启就会清空*/
     private LinkedList<Message> newest = new LinkedList<>();
@@ -13,50 +14,31 @@ public class UserService {
         return newest;
     }
 
-    public UserService (String USERS){
-        this.USERS = USERS;
+    private AccountDAO accountDAO;
+    private MessageDAO messageDAO;
+
+    public UserService(AccountDAO accountDAO, MessageDAO messageDAO){
+        this.accountDAO = accountDAO;
+        this.messageDAO = messageDAO;
     }
 
     public boolean isUsernameExisted (String username){
-        for (String file : new File(USERS).list()){
-            if (file.equals(username)){
-                return true;
-            }
+        return accountDAO.isUserExisted(username);
+    }
+
+    public void createUserData (Account account){
+        accountDAO.addAccount(account);
+    }
+
+    public boolean checkLogin(Account account) throws IOException {
+        if (account.getUsername() != null && account.getPassword() != null){
+            Account resultAccount = accountDAO.getAccount(account);
+            return resultAccount != null
+                    && resultAccount.getPassword().equals(account.getPassword());
         }
         return false;
     }
 
-    public void createUserData (String email, String username, String password) throws IOException {
-        File userhome = new File(USERS + "/" + username);
-        userhome.mkdir();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(userhome + "/profile"));
-        writer.write(email + "\t" + password);
-        writer.close();
-    }
-
-    public boolean checkLogin(String username, String password) throws IOException {
-        if (username != null && password != null){
-            for (String file : new File(USERS).list()){
-                if (file.equals(username)){
-                    BufferedReader reader = new BufferedReader(new FileReader(USERS + "/"
-                            + file + "/profile"));
-                    String passwd = reader.readLine().split("\t")[1];
-                    if (passwd.equals(password)){
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return false;
-    }
-
-    private class TxtFilenameFilter implements FilenameFilter {
-        @Override
-        public boolean accept(File dir, String name) {
-            return name.endsWith(".txt");
-        }
-    }
 
     private class DateComparator implements Comparator<Message> {
         @Override
@@ -66,33 +48,13 @@ public class UserService {
     }
 
     public List<Message> getMessage(Message message) throws IOException {    //可以改成只要username这一个参数
-        String username = message.getUsername();
-        File border = new File(USERS + "/" + username);
-        String[] txts = border.list(new TxtFilenameFilter());          //获得目录下所有txt文件
-
-        List<Message> blahs = new ArrayList<>();
-
-        for(String txt : txts) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                            new FileInputStream(USERS + "/" + username + "/" + txt), "UTF-8"));
-            String text = null;
-            StringBuilder builder = new StringBuilder();
-            while((text = reader.readLine()) != null) {
-                builder.append(text);
-            }
-            Date date = new Date(Long.parseLong(txt.substring(0, txt.indexOf(".txt"))));
-            reader.close();
-            blahs.add(new Message(username, date, builder.toString()));
-        }
-        blahs.sort(new DateComparator());
-        return blahs;
+        List<Message> messages = messageDAO.getMessage(message);
+        messages.sort(new DateComparator());
+        return messages;
     }
 
     public void addMessage(Message message) throws IOException {
-        String file = USERS + "/" + message.getUsername() + "/" + new Date().getTime() + ".txt";
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));   //utf-8
-        writer.write(message.getTxt());
-        writer.close();
+        messageDAO.addMessage(message);
         newest.addFirst(message);
         if (newest.size() > 20){
             newest.removeLast();
@@ -100,13 +62,8 @@ public class UserService {
     }
 
     public void deleteMessage(Message message){
-        File file = new File(USERS+"/"+ message.getUsername()+"/"+ message.getDate().getTime() +".txt");
-        if (file.exists()){
-            file.delete();
-        }
+        messageDAO.deleteMessage(message);
         newest.remove(message);
     }
-
-
 
 }

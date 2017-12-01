@@ -1,5 +1,6 @@
 package controller;
 
+import model.Account;
 import model.UserService;
 
 import javax.servlet.ServletException;
@@ -17,8 +18,8 @@ import java.util.List;
  * Created by GaryMao on 11/26/2017.
  */
 @WebServlet(urlPatterns = {"/register"}, name = "Register", loadOnStartup = 1,
-            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "../success.jsp"),
-                          @WebInitParam(name = "ERROR_VIEW", value = "../register.jsp")})
+            initParams = {@WebInitParam(name = "SUCCESS_VIEW", value = "success.jsp"),
+                          @WebInitParam(name = "ERROR_VIEW", value = "register.jsp")})
 public class Register extends HttpServlet {
     private String SUCCESS_VIEW;
     private String ERROR_VIEW;
@@ -41,7 +42,7 @@ public class Register extends HttpServlet {
         if (isInvalidEmail(email)){
             errors.add("未填写邮件或邮件格式不正确");
         }
-        if (userService.isUsernameExisted(usersname)){
+        if (userService.isUsernameExisted(usersname) || usersname.equals("")){
             errors.add("用户名为空或已存在");
         }
         if (isInvalidPassWord(password, confirmedPasswd)){
@@ -52,7 +53,8 @@ public class Register extends HttpServlet {
             request.setAttribute("errors", errors);
         } else {
             resultPage = SUCCESS_VIEW;
-            userService.createUserData(email, usersname, password);
+            Account account = new Account(usersname, password, email);
+            userService.createUserData(account);
         }
 
         request.getRequestDispatcher(resultPage).forward(request,response);

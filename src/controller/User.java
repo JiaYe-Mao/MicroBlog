@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "User", urlPatterns = {"/user/*"},
-            initParams = {@WebInitParam(name="USER_VIEW", value = "../user.jsp"),
-                          @WebInitParam(name = "MEMBER_VIEW", value = "../member.jsp")})
+            initParams = {@WebInitParam(name="USER_VIEW", value = "/user.jsp"),
+                          @WebInitParam(name = "MEMBER_VIEW", value = "/member.jsp")})
 public class User extends HttpServlet {
     private String USER_VIEW;
     private String MEMBER_VIEW;
@@ -42,10 +42,11 @@ public class User extends HttpServlet {
             List<Message> messages = userService.getMessage(username);
             request.setAttribute("messages", messages);
             if (requestUsername.equals(currentUsername)){
-                request.getRequestDispatcher(MEMBER_VIEW).forward(request, response);
+                System.out.println(request.getPathInfo());
+                request.getRequestDispatcher(request.getPathInfo()+MEMBER_VIEW).forward(request, response);
             }
-        }
 
+        }
         request.getRequestDispatcher(USER_VIEW).forward(request,response);
     }
 }
