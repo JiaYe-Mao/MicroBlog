@@ -2,6 +2,7 @@ package listener;
 
 import DAO.AccountDAOJdbcImpl;
 import DAO.MessageDAOJdbcImpl;
+import model.QQMailCarrier;
 import model.UserService;
 
 import javax.naming.Context;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.util.Properties;
 
 @WebListener()
 public class GossipListener implements ServletContextListener,
@@ -38,9 +41,21 @@ public class GossipListener implements ServletContextListener,
             Context initContext = new InitialContext();
             DataSource dataSource = (DataSource) initContext.lookup("java:/comp/env/jdbc/gossip");
             ServletContext context = sce.getServletContext();
-            context.setAttribute("userService",
-                    new UserService(new AccountDAOJdbcImpl(dataSource), new MessageDAOJdbcImpl(dataSource)));
+
+            Properties props = new Properties();
+            props.load(context.getResourceAsStream("/WEB-INF/mail.properties"));
+            UserService userService = new UserService(
+                    new AccountDAOJdbcImpl(dataSource),
+                    new MessageDAOJdbcImpl(dataSource),
+                    new QQMailCarrier(props));
+
+            //userService.setTemplate();           //设置HTML模板
+
+            context.setAttribute("userService", userService);
+
         } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -16,10 +16,36 @@ public class UserService {
 
     private AccountDAO accountDAO;
     private MessageDAO messageDAO;
+    private MailCarrier mailCarrier;
+    private String template;
 
-    public UserService(AccountDAO accountDAO, MessageDAO messageDAO){
+    public UserService(AccountDAO accountDAO, MessageDAO messageDAO, MailCarrier mailCarrier){
         this.accountDAO = accountDAO;
         this.messageDAO = messageDAO;
+        this.mailCarrier = mailCarrier;
+    }
+
+    /*设置发送密码找回邮件的内容*/
+    public void setTemplate(String template){
+        this.template = template;
+    }
+
+    /*发送邮件*/
+    public boolean sendPasswordTo (Account account){
+        Account resultAccount = accountDAO.getAccount(account);
+        if (resultAccount!=null && resultAccount.getEmail().equals(account.getEmail())){
+            String subject = account.getUsername() + " 的微博密码";
+            String content = null;
+            if (template == null){
+                content = account.getUsername() + " 您好! 您的密码是 " + account.getPassword();
+            } else {
+                content = template.replace("#name", account.getUsername())
+                        .replace("#password", account.getPassword());
+            }
+            mailCarrier.sendTo(account, subject, content);
+            return true;
+        }
+        return false;
     }
 
     public boolean isUsernameExisted (String username){

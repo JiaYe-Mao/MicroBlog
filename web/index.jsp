@@ -42,7 +42,7 @@
                <td colspan='2' align='center'><input type='submit' value='登入'></td>
             </tr>
             <tr>
-              <td colspan='2'><a href='forgot.html'>忘记密码？</a>
+              <td colspan='2'><a href='forgot.jsp'>忘记密码？</a>
               </td>
             </tr>
          </table>
