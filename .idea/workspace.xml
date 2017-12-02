@@ -8,11 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6f72f666-4061-425b-84f9-355c5c99717e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/MessageDAOJdbcImpl.java" afterPath="$PROJECT_DIR$/src/DAO/MessageDAOJdbcImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Register.java" afterPath="$PROJECT_DIR$/src/controller/Register.java" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/controller/Register.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/controller/Register.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/DAO/AccountDAO.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/controller/Register.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/controller/User.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/model/Message.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WeiboWithServlet_war_exploded/WEB-INF/classes/model/UserService$1.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +39,7 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
+            <state relative-caret-position="736">
               <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -67,18 +67,8 @@
       <file leaf-file-name="GossipListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/listener/GossipListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="1012">
               <caret line="37" column="55" lean-forward="false" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="69" column="77" lean-forward="false" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -97,8 +87,8 @@
       <file leaf-file-name="AccountDAOJdbcImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAOJdbcImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2024">
-              <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
+            <state relative-caret-position="2576">
+              <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#331#332#0" expanded="true" />
@@ -111,28 +101,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MessageDAOJdbcImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/MessageDAOJdbcImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="-966">
+              <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#281#282#0" expanded="true" />
                 <element signature="e#325#326#0" expanded="true" />
-                <marker date="1512179668000" expanded="true" signature="665:711" ph="SELECT COUNT... t_account" />
-                <marker date="1512179668000" expanded="true" signature="1482:1537" ph="INSERT INTO t_message... " />
-                <marker date="1512179668000" expanded="true" signature="2184:2220" ph="DELETE FROM t_message... " />
+                <marker date="1512189510000" expanded="true" signature="665:711" ph="SELECT date,... " />
+                <marker date="1512189510000" expanded="true" signature="1482:1537" ph="INSERT INTO t_message... " />
+                <marker date="1512189510000" expanded="true" signature="2184:2220" ph="DELETE FROM t_message... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageDAOJdbcImpl.class" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3588">
+              <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+              <folding>
+                <marker date="1512190758000" expanded="true" signature="0:104" ph="/.../" />
+                <marker date="1512190758000" expanded="false" signature="127:368" ph="..." />
+                <marker date="1512190758000" expanded="false" signature="514:525" ph=" { " />
+                <marker date="1512190758000" expanded="false" signature="554:560" ph=" }" />
+                <marker date="1512190758000" expanded="true" signature="615:1379" ph="{...}" />
+                <marker date="1512190758000" expanded="true" signature="864:910" ph="SELECT date,... " />
+                <marker date="1512190758000" expanded="true" signature="1425:2060" ph="{...}" />
+                <marker date="1512190758000" expanded="true" signature="1639:1694" ph="INSERT INTO t_message... " />
+                <marker date="1512190758000" expanded="true" signature="2109:2622" ph="{...}" />
+                <marker date="1512190758000" expanded="true" signature="2323:2359" ph="DELETE FROM t_message... " />
+                <marker date="1512190758000" expanded="true" signature="2712:3150" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -148,11 +150,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Register.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Register.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Register.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="644">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -257,12 +269,18 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboWithServlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboWithServlet" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
@@ -312,6 +330,21 @@
             </path>
             <path>
               <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboWithServlet" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboWithServlet" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboWithServlet" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -319,7 +352,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -912,11 +944,12 @@
       <workItem from="1512029928514" duration="16164000" />
       <workItem from="1512117630397" duration="120000" />
       <workItem from="1512117799023" duration="21944000" />
+      <workItem from="1512189455605" duration="1279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112938000" />
+    <option name="totallyTimeSpent" value="114217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1850" extended-state="6" />
@@ -924,24 +957,24 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14716981" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62092733" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3897243" sideWeight="0.5026455" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8314536" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8314536" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15898791" sideWeight="0.48427674" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16125378" sideWeight="0.48427674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1632653" sideWeight="0.5157233" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494331" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36477986" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1017,17 +1050,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/Member.java" />
-    <entry file="file://$PROJECT_DIR$/src/controller/Delete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Logout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1235,25 +1257,25 @@
         <state relative-caret-position="322">
           <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="false" />
+            <element signature="e#383#384#0" expanded="false" />
+            <element signature="e#431#432#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#506#507#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#585#586#0" expanded="false" />
+            <element signature="e#625#626#0" expanded="false" />
+            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#685#686#0" expanded="false" />
+            <element signature="e#727#728#0" expanded="false" />
+            <element signature="e#761#762#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
+        <state relative-caret-position="1518">
           <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding />
         </state>
@@ -1263,7 +1285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="280" column="17" lean-forward="false" selection-start-line="280" selection-start-column="17" selection-end-line="280" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,13 +1292,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
           <caret line="343" column="29" lean-forward="true" selection-start-line="343" selection-start-column="29" selection-end-line="343" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
+        <state relative-caret-position="3174">
           <caret line="69" column="77" lean-forward="false" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
           <folding />
         </state>
@@ -1287,29 +1307,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19550">
           <caret line="138" column="11" lean-forward="false" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
-          <folding>
-            <element signature="e#4787#4788#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/listener/GossipListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
+        <state relative-caret-position="1012">
           <caret line="37" column="55" lean-forward="false" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.44-bin.jar/com/mysql/jdbc/jmx/ReplicationGroupManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.44-bin.jar/com/mysql/jdbc/jmx/ReplicationGroupManager.class" />
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1334,25 +1343,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/MessageDAOJdbcImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <marker date="1512179668000" expanded="true" signature="665:711" ph="SELECT COUNT... t_account" />
-            <marker date="1512179668000" expanded="true" signature="1482:1537" ph="INSERT INTO t_message... " />
-            <marker date="1512179668000" expanded="true" signature="2184:2220" ph="DELETE FROM t_message... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAOJdbcImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
+        <state relative-caret-position="2576">
+          <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#331#332#0" expanded="true" />
@@ -1366,7 +1360,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
+        <state relative-caret-position="736">
           <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1383,8 +1377,51 @@
     <entry file="file://$PROJECT_DIR$/src/controller/Register.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/MessageDAOJdbcImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-966">
+          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <marker date="1512189510000" expanded="true" signature="665:711" ph="SELECT date,... " />
+            <marker date="1512189510000" expanded="true" signature="1482:1537" ph="INSERT INTO t_message... " />
+            <marker date="1512189510000" expanded="true" signature="2184:2220" ph="DELETE FROM t_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/DAO/MessageDAOJdbcImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3588">
+          <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <marker date="1512190758000" expanded="true" signature="0:104" ph="/.../" />
+            <marker date="1512190758000" expanded="false" signature="127:368" ph="..." />
+            <marker date="1512190758000" expanded="false" signature="514:525" ph=" { " />
+            <marker date="1512190758000" expanded="false" signature="554:560" ph=" }" />
+            <marker date="1512190758000" expanded="true" signature="615:1379" ph="{...}" />
+            <marker date="1512190758000" expanded="true" signature="864:910" ph="SELECT date,... " />
+            <marker date="1512190758000" expanded="true" signature="1425:2060" ph="{...}" />
+            <marker date="1512190758000" expanded="true" signature="1639:1694" ph="INSERT INTO t_message... " />
+            <marker date="1512190758000" expanded="true" signature="2109:2622" ph="{...}" />
+            <marker date="1512190758000" expanded="true" signature="2323:2359" ph="DELETE FROM t_message... " />
+            <marker date="1512190758000" expanded="true" signature="2712:3150" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
